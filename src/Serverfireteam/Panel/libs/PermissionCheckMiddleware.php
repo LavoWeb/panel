@@ -22,7 +22,7 @@ class PermissionCheckMiddleware
     public function handle($request, Closure $next)
     {   
 
-        $admin= Admin::find((\Auth::guard('panel')->user()->id));
+        $admin= Admin::find((\Auth::guard()->user()->id));
         
         $urlSegments   = $request->segments();
 

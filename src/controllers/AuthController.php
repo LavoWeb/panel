@@ -21,7 +21,7 @@ class AuthController extends Controller {
                 'password' 	=> Input::get('password')
         );
         // attempt to do the login
-        if (\Auth::guard('panel')->attempt($userdata,filter_var(Input::get('remember'), FILTER_VALIDATE_BOOLEAN))) {
+        if (\Auth::guard()->attempt($userdata,filter_var(Input::get('remember'), FILTER_VALIDATE_BOOLEAN))) {
             return \Redirect::to('panel');
         } else {
             // validation not successful, send back to form	
@@ -38,7 +38,7 @@ class AuthController extends Controller {
     
     public function doLogout(){
         
-        \Auth::guard('panel')->logout();     
+        \Auth::guard()->logout();
         return \Redirect::to('panel/login');
     }
 }
