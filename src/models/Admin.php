@@ -7,8 +7,9 @@ use Illuminate\Auth\Passwords\CanResetPassword;
 use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
 use Illuminate\Contracts\Auth\CanResetPassword as CanResetPasswordContract;
 use Illuminate\Support\Facades\Input;
+use App\User;
 
-class Admin extends Model implements AuthenticatableContract, CanResetPasswordContract {
+class Admin extends User implements AuthenticatableContract, CanResetPasswordContract {
 
     use Authenticatable, CanResetPassword;
     use HasRoles;
